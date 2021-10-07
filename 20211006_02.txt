@@ -49,10 +49,9 @@ Git と GitHub について
 	***********
 	$git --version
 	***********
-	#Picture
 
 	バージョンが表示されたらインストール成功。
-	#Picture
+	#Picture [001_git_ver]
 
 	
 1-2.Gitの初期設定
@@ -73,7 +72,7 @@ Git と GitHub について
 	***********
 	$git config --list
 	***********
-	#Picture
+	#Picture[002_git_list]
 
 	git Bash はexit で終了します。
 
@@ -92,7 +91,7 @@ Git と GitHub について
 1-4.リモートリポジトリの作成
 	アカウント登録が完了したら、リポジトリを作成します。
 	Webサイトにある「Create Repository」ボタンを押します。
-	#Picture
+	#Picture[003_github_repositorie]
 
 	repository name には任意の名前を付けます。
 	「public」か「private」を選択します。「public」は文字通り、作成したrepositoryがすべての人から参照可能になります。
@@ -100,7 +99,7 @@ Git と GitHub について
 	「initialize this repository with a ReadMe」はチェックをOnにします。
 	gitignore やlicence はNoneを選択してかまいません。
 	new repository として作成したリポジトリの属性が表示されます。
-
+	#Picture[004_github_repositorie]
 
 	
 1-5.ローカルリポジトリの作成
@@ -128,6 +127,9 @@ Git と GitHub について
 	そしてコメントとして
 	use "git add <title>" to include in what will be commited 
 	と表示される。
+	#Picture[005_git_init status]
+
+
 	これは赤文字のフォルダやファイルがまだコミット対象になっていないので「git add」でコミットリストに追加しなさい、という意味。
 	コミットとはそのファイルをリポジトリで追跡対象として登録することです。
 
@@ -137,6 +139,8 @@ Git と GitHub について
 	$git add [ファイル名]
 	************
 
+	#Picture[006_git_add]
+
 
 1-6.ローカルリポジトリにコミットする
 	add に成功すると　new file:[ファイル名]　として新しいファイルが追跡対象に加わります。
@@ -145,7 +149,7 @@ Git と GitHub について
 	Commit を行う際に簡単なコメントを加える必要があります。そのコメント入力を含めて以下のコマンドを叩きます。
 
 	****************
-	$git commit -m "〇〇"
+	$git commit -m "[コメント]"
 	****************
 
 	git commit でここまでgit add でコミット待ちにしていたファイルが仕掛リストから消え、リポジトリに加わってゆきます。
@@ -157,9 +161,74 @@ Git と GitHub について
 	で確認できます。
 
 1-7.リモートリポジトリにプッシュする
+	github のリモートリポジトリにプッシュするコマンド例はgithub のサイトに紹介されています。
+
+	#Picture[007_github_commandref]
+
+	すでにローカルにリポジトリがある場合とない場合、双方のコマンドレファレンスがあります。
+	今回はすでに開設したようにローカル側にリポジトリを作成済。
+
+	まず、対象となるリモートリポジトリを変数に入れます。
+
+	****************
+	$git remote add origin [URL/リポジトリ名.git] 
+	****************
+
+	これは今後の作業で頻繁に登場するリモートリポジトリをorigin という変数に代入するコマンドです。
+	長いリモートリポジトリ名を都度指定する必要がなくなります。
+
+	#Picture[008_git_remoteadd]
+
+	なお、add するリモートリポジトリ名を間違えてしまった場合などは
+
+	****************
+	$git remote rm origin
+	****************
+
+	で、origin が初期化されます。
+	origin の中身を確認したい場合は
+
+	****************
+	$git remote -v
+	****************
+
+	を叩きますが、この例では初期化済であるためレスポンスがありません。
+	#Picture[009_git_remote rm]
 
 
+	次に、このリポジトリにmain ブランチを作成します。
+
+	****************
+	$git branch -M main
+	****************
+
+	#Picture[010_git_branch M]
+
+	メインブランチ名は「main」である必要はありませんが、現在はmain が推奨されている由。
+	以前は「master」がよくつかわれていたそうです。
+
+	リモートリポジトリにアクセスできていればmain ブランチが出来上がっているはずです。その場合、特にコメントは返ってきません。
+	次にローカルブランチの内容をリモートにプッシュします。
+
+	****************
+	$git push -u origin main
+	****************
+
+	ここでorigin が出てきました。main は今しがた作成したメインブランチ名です。
+
+	#Picture[011_git_push u]
+
+	このコマンドを初めて使うと指定したgithub のusername を確認してきます。
+	記入すると次いでパスワードの入力も求めてきます。両方とも入力して作業を続けます。
+	プッシュが成功するとリポジトリの転送状況が表示されます。
+
+	#Picture[012_git_pushsucseed]
+
+	ここまで完了したら、github側のリモートリポジトリを確認してみます。
+	githubのサイトで作成したリポジトリにはいり<>Code 欄をクリックします。
+	リモート側のリポジトリにローカルで作成したファイル（ここでは[20211006_02.txt]が登録されていることが確認できます。
+
+	#Picture[013_github_repositorie]
 	
-
 
 
