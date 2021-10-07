@@ -74,7 +74,7 @@ Git と GitHub について
 	***********
 	#Picture[002_git_list]
 
-	git Bash はexit で終了します。
+	
 
 1-3.GitHubのアカウント作成
 	Githubへのサービス登録をします。
@@ -126,7 +126,7 @@ Git と GitHub について
 	を叩くと起動フォルダに既に存在するフォルダとファイルが赤文字でリスト表示されます。
 	そしてコメントとして
 	use "git add <title>" to include in what will be commited 
-	と表示される。
+	と表示されます。
 	#Picture[005_git_init status]
 
 
@@ -238,6 +238,10 @@ Git と GitHub について
 
 	と叩く。
 	これでリモート側に変更や更新があった場合にその内容をローカル側にアップデートすることができます。
+
+
+
+https://hushiro03.wixsite.com/0196hp/post/git-と-github-について
 
 	
 
